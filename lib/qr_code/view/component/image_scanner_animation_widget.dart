@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+// * ImageScannerAnimationWidget ini digunakan untuk animasi garis yang ada di camera
+
 class ImageScannerAnimationWidget extends AnimatedWidget {
   final bool stopped;
   final double width;
@@ -12,14 +14,9 @@ class ImageScannerAnimationWidget extends AnimatedWidget {
         colorTwo = Colors.blue.withOpacity(0.16),
         super(key: key, listenable: animation!);
 
-  ImageScannerAnimationWidget.qoin(this.stopped, this.width,
-      {Key? key, Animation<double>? animation})
-      : colorOne = const Color(0xfff48e2d),
-        colorTwo = const Color(0x00fac15a),
-        super(key: key, listenable: animation!);
-
   @override
   Widget build(BuildContext context) {
+    // * Transition
     final Animation<double> animation = listenable as Animation<double>;
     final scorePosition =
         (animation.value * MediaQuery.of(context).size.height) - 100;

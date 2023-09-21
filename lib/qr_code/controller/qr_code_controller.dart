@@ -8,7 +8,7 @@ class QrCodeController extends GetxController
     with GetSingleTickerProviderStateMixin {
   static QrCodeController get to => Get.find();
 
-  //* Controllers and Instances
+  //* Controllers Setting Mobile Scanner
   MobileScannerController cameraController = MobileScannerController(
     detectionSpeed: DetectionSpeed.unrestricted,
     facing: CameraFacing.back,
@@ -21,6 +21,7 @@ class QrCodeController extends GetxController
   var animationStopped = false.obs;
   @override
   void onInit() {
+    // * Setting animation controller
     animationController = AnimationController(
       duration: const Duration(milliseconds: 1200),
       vsync: this,
@@ -38,12 +39,6 @@ class QrCodeController extends GetxController
       },
     );
 
-    // Future.delayed(
-    //   const Duration(seconds: 7),
-    //   () {
-    //     animationStopped.value = true;
-    //   },
-    // );
     super.onInit();
   }
 
@@ -54,12 +49,12 @@ class QrCodeController extends GetxController
     super.onClose();
   }
 
-  //* Qr Scanner
+  //* Qr Scanner digunakan untuk mengambil isi data dari QR
   void onQrCamera(BarcodeCapture capture) {
     final List<Barcode> barcodes = capture.barcodes;
     if (barcodes.isEmpty) return;
 
+    // * isi data dikembalikan menggunakan log
     log(barcodes.first.rawValue ?? 'Kosong');
-    // argument.onScannedQR(barcodes.first.rawValue ?? '');
   }
 }

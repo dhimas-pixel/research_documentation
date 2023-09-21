@@ -13,6 +13,7 @@ class QrImageScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            // * QR Generator : membuat QR dengan data sebagai isinya
             QrImageView(
               data: 'Aku Sayang Kamu',
               size: 200,
