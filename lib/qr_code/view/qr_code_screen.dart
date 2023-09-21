@@ -47,7 +47,7 @@ class QrCodeScreen extends StatelessWidget {
       ),
       body: Stack(
         children: [
-          // * Package Mobile Scanner digunakan sebagai scanning QR yang mengembalikan isi QR melalui function onDetect
+          // * Mobile Scanner package digunakan sebagai scanning QR yang mengembalikan isi QR melalui function onDetect
           Align(
             alignment: Alignment.center,
             child: MobileScanner(
