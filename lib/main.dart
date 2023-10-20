@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:riset_flutter/global_components/custom_button_widget.dart';
 import 'package:riset_flutter/qr_code/view/qr_code_screen.dart';
+import 'package:riset_flutter/stepper/view/stepper_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,7 +35,15 @@ class MyApp extends StatelessWidget {
                 CustomButtonWidget.outlined(
                   text: 'QR Scanner',
                   splashColor: Colors.green.shade400,
-                  onTap: () => Get.to(const QrCodeScreen()),
+                  onTap: () => Get.to(() => const QrCodeScreen()),
+                ),
+                const SizedBox(
+                  height: 12,
+                ),
+                CustomButtonWidget.outlined(
+                  text: 'Stepper',
+                  splashColor: Colors.green.shade400,
+                  onTap: () => Get.to(() => const StepperScreen()),
                 ),
               ],
             ),
